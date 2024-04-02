@@ -1,18 +1,21 @@
-import React, { useState, useEffect } from "react";
-import Header from "../../components/Header/Header"
-
+import  { useState, useEffect } from "react";
+import Header from "../../components/Header/Header";
 
 function Upcoming() {
   const [upcoming, setUpcoming] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
-          `https://api.themoviedb.org/3/movie/upcoming?api_key=c45a857c193f6302f2b5061c3b85e743&language=en-US&page=${currentPage}`
-        );
+        let apiUrl = `https://api.themoviedb.org/3/movie/upcoming?api_key=c45a857c193f6302f2b5061c3b85e743&language=en-US&page=${currentPage}`;
+        if (searchTerm) {
+          apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=c45a857c193f6302f2b5061c3b85e743&language=en-US&page=${currentPage}&query=${searchTerm}`;
+        }
+
+        const response = await fetch(apiUrl);
         const data = await response.json();
         setUpcoming(data.results);
         setTotalPages(data.total_pages);
@@ -22,7 +25,7 @@ function Upcoming() {
     };
 
     fetchData();
-  }, [currentPage]);
+  }, [currentPage, searchTerm]);
 
   const handleNextPage = () => {
     setCurrentPage(currentPage + 1);
@@ -32,9 +35,14 @@ function Upcoming() {
     setCurrentPage(currentPage - 1);
   };
 
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+    setCurrentPage(1); // Reset to first page when searching
+  };
+
   return (
     <>
-    <Header/>
+      <Header handleSearch={handleSearch} />
       <div className="cards-container">
         {upcoming.map((movie) => (
           <div key={movie.id} className="card">
@@ -50,7 +58,6 @@ function Upcoming() {
           </div>
         ))}
       </div>
-
       <div className="pagination">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
           Prev
@@ -65,3 +72,4 @@ function Upcoming() {
 }
 
 export default Upcoming;
+
