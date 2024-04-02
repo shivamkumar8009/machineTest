@@ -46,7 +46,7 @@ function TopRated() {
       <Header handleSearch={handleSearch} />
       <div className="cards-container">
         {rated.map((movie) => (
-          <Link key={movie.id} to={`/SingleMovieDetail/${movie.id}`}>
+          <Link className='text' key={movie.id} to={`/SingleMovieDetail/${movie.id}`}>
             <div className="card">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

@@ -1,42 +1,122 @@
-/* SingleMovieDetail.css */
 .smovie-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.smovie-details {
+  width: 100%;
+  max-width: 110rem; /* Adjust max-width as needed */
+ 
+  margin-bottom: 0px;
+}
+
+.scard {
+  display: flex;
+  flex-direction: row-reverse;
+  height:20rem;
+  margin-bottom: 5px;
+  border: 1px solid #333232;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: rgb(41, 40, 40);
+}
+
+.scard-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit:fill;
+}
+
+.scard-content {
+  padding: 15px;
+}
+
+.scast {
+  display: flex;
+  flex-direction: column;
+}
+
+.scast-images {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.scast-image {
+  width: calc(93.33% - 10px); 
+  max-width: 250px;
+  height: 15rem;
+  object-fit: fill;
+}
+.text-color1{
+  color: rgb(146, 144, 144);
+  font-size: 30px;
+}
+.text-color2{
+  color:rgb(146, 144, 144);
+  font-size: 20px;
+}
+.scard2 {
+  display: flex;
+  flex-direction:column;
+  margin-bottom: 20px;
   
-  .smovie-details {
-    margin-bottom: 20px;
-  }
+  border-radius: 5px;
+  overflow: hidden;
   
+}
+.text-color3{
+  color: rgb(160, 157, 157);
+  font-size: 20px;
+}
+.text-color4{
+  color: rgb(160, 157, 157);
+  font-size: 20px;
+}
+.text-cast{
+  color: rgb(160, 157, 157);
+  font-size: 34px;
+  padding:5px;
+}
+
+@media screen and (max-width: 768px) {
   .scard {
-    display: flex;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
+    display: grid;
+    height:40rem;
+    border: 1px solid #333232;
     border-radius: 5px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgb(41, 40, 40);
   }
   
   .scard-image {
-    width: 200px;
-    height: 300px;
-    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+    height: 20rem;
+    object-fit:fill;
   }
-  
-  .scard-content {
-    padding: 15px;
-  }
-  
   .scast-images {
-    display: flex;
-    overflow-x: auto;
-    gap: 10px;
+    display: grid;
+    flex-wrap: wrap;
   }
-  
   .scast-image {
-    width: 100px;
-    height: 150px;
-    object-fit: cover;
+    width: 60rem; 
+    height: 20rem;
+    object-fit: fill;
+  }
+  .text-color1{
+    color: rgb(146, 144, 144);
+    font-size: 20px;
+  }
+  .text-color2{
+    color:rgb(146, 144, 144);
+    font-size: 15px;
   }
   
+}

@@ -23,6 +23,8 @@ const Header = ({ handleSearch }) => {
         <a href="/" className="nav-logo">MovieDb</a>
         <div className={showMenu ? "menu-toggle open" : "menu-toggle"} onClick={toggleMenu}>
            <div className="hamburger"></div>
+           <div className="hamburger"></div>
+           <div className="hamburger"></div>
          </div>
          <ul className={showMenu ? "nav-links show" : "nav-links"}>
        

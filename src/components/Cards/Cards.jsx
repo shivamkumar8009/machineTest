@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react/prop-types */
+import  { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Cards.css";
 
@@ -10,11 +11,13 @@ const Cards = ({ searchTerm }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        let apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=c45a857c193f6302f2b5061c3b85e743&language=en-US&page=${currentPage}`;
+        let apiUrl = `https://api.themoviedb.org/3/movie/popular?api_key=c45a857c193f6302f2b5061c3b85e743&language=en-
+        US&page=${currentPage}`;
         if (searchTerm) {
-          apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=c45a857c193f6302f2b5061c3b85e743&language=en-US&page=${currentPage}&query=${searchTerm}`;
+          apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=c45a857c193f6302f2b5061c3b85e743&language=
+          en-US&page=${currentPage}&query=${searchTerm}`;
         }
-        
+
         const response = await fetch(apiUrl);
         const data = await response.json();
         setMovies(data.results);
@@ -39,7 +42,7 @@ const Cards = ({ searchTerm }) => {
     <>
       <div className="cards-container">
         {movies.map((movie) => (
-          <Link key={movie.id} to={`/SingleMovieDetail/${movie.id}`}>
+          <Link className='text' key={movie.id} to={`/SingleMovieDetail/${movie.id}`}>
             <div className="card">
               <img
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -66,7 +69,6 @@ const Cards = ({ searchTerm }) => {
       </div>
     </>
   );
-}
+};
 
 export default Cards;
-
