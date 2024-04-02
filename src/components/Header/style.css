@@ -71,6 +71,7 @@
     align-items: center;
     text-align: center;
     font-size: 20px;
+    margin-left:20px;
 }
 .input{
   height: 3rem;
