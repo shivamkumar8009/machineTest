@@ -1,0 +1,104 @@
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    position: relative;
+    font-size: 20px;
+  }
+  
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-logo {
+    font-size: 24px;
+    text-decoration: none;
+    color: #c0bebe;
+  }
+  
+  .menu-toggle {
+    display: none; /* Initially hide the hamburger menu */
+    cursor: pointer;
+  }
+  
+  .hamburger {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    transition: transform 0.3s ease; /* Add transition for smooth animation */
+  }
+  
+  .menu-toggle.open .hamburger:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .menu-toggle.open .hamburger:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.open .hamburger:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  .nav-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .nav-links li {
+    margin: 0 10px;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: #888686;
+  }
+  .button{
+    background-color: rgb(90, 88, 88);
+    color: #adabab;
+    height: 3rem;
+    width: 8rem;
+    border-radius: 5px;
+    padding:8px;
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+}
+.input{
+  height: 3rem;
+  border-radius: 5px;
+  padding:10px;
+  font-size: 20px;
+  color: #adabab;
+}
+
+  
+  @media screen and (max-width: 768px) {
+    .menu-toggle {
+      display: block; /* Show the hamburger icon for phone screens */
+    }
+  
+    .nav-links {
+      display: none; /* Hide the navigation links by default on smaller screens */
+      flex-direction: column;
+      background-color: #333;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+    }
+  
+    .nav-links.show {
+      display: flex; /* Show the navigation links when menu is clicked */
+      float: left;
+    }
+  }
+  

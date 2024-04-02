@@ -1,45 +1,36 @@
-import { Link } from "react-router-dom";
-import styles from "./Header.module.css";
+import  { useState } from 'react';
+import './style.css'; // Import your CSS file for styling
 
-function Header() {
+const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
-    <>
-      <section className={styles.header}>
-        <div className={styles.left}>
-          <Link className={styles.l1} to="/">
-            Movie DB
-          </Link>
+    <nav className="navbar">
+      <div className="nav-container">
+        <a href="/" className="nav-logo">MovieDb</a>
+        <div className={showMenu ? "menu-toggle open" : "menu-toggle"} onClick={toggleMenu}>
+          <div className="hamburger"></div>
         </div>
-        <div className={styles.right}>
-          <div>
-            <Link className={styles.r1} to="/">
-              Popular
-            </Link>
-          </div>
-          <div>
-            <Link className={styles.r2} to="/topRated">
-              Top Rated
-            </Link>
-          </div>
-          <div>
-            <Link className={styles.r3} to="/upcoming">
-              Upcoming
-            </Link>
-          </div>
-          <div>
-            <Link className={styles.r4} to="/">
-              Movie Name
-            </Link>
-          </div>
-          <div>
-            <Link className={styles.r5} to="/">
-              Search
-            </Link>
-          </div>
-        </div>
-      </section>
-    </>
+        <ul className={showMenu ? "nav-links show" : "nav-links"}>
+       
+          <li><a href="/">Popular</a></li>
+          <li><a href="/topRated">Top Rated</a></li>
+          <li><a href="/upcoming">Upcoming</a></li>
+          <li><a href="#"><input
+               className="input"
+               type="text"
+               placeholder="Movie Name"
+             /></a></li>
+          <li><a href="#"> <button className="button">Search</button></a></li>
+      
+        </ul>
+      </div>
+    </nav>
   );
-}
+};
 
 export default Header;
