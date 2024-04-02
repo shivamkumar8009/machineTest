@@ -1,11 +1,12 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
 
 function Upcoming() {
   const [upcoming, setUpcoming] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,24 +46,28 @@ function Upcoming() {
       <Header handleSearch={handleSearch} />
       <div className="cards-container">
         {upcoming.map((movie) => (
-          <div key={movie.id} className="card">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.original_title}
-              className="card-image"
-            />
-            <div className="card-content">
-              <h3 className="card-title">{movie.original_title}</h3>
-              <p className="card-rating">Rating: {movie.vote_average}</p>
+          <Link key={movie.id} to={`/SingleMovieDetail/${movie.id}`}>
+            <div className="card">
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.original_title}
+                className="card-image"
+              />
+              <div className="card-content">
+                <h3 className="card-title">{movie.original_title}</h3>
+                <p className="card-rating">Rating: {movie.vote_average}</p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       <div className="pagination">
         <button onClick={handlePrevPage} disabled={currentPage === 1}>
           Prev
         </button>
-        <span>{currentPage}</span> / <span>{totalPages}</span>
+        <span>
+          {currentPage} / {totalPages}
+        </span>
         <button onClick={handleNextPage} disabled={currentPage === totalPages}>
           Next
         </button>
@@ -72,4 +77,3 @@ function Upcoming() {
 }
 
 export default Upcoming;
-

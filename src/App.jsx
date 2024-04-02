@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
@@ -7,17 +8,14 @@ import SingleMovieDetail from "./Pages/SingleMovieDetail/SingleMovieDetail";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<Home />}/>
-            <Route path="/topRated" element={<TopRated />} />
-            <Route path="/upcoming" element={<Upcoming />} />
-            <Route path="/SingleMovieDetail" element={<SingleMovieDetail />} />
-          
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/topRated" element={<TopRated />} />
+        <Route path="/upcoming" element={<Upcoming />} />
+        <Route path="/SingleMovieDetail/:movieId" element={<SingleMovieDetail />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

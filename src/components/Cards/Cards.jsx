@@ -1,4 +1,5 @@
-import  { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Cards.css";
 
 const Cards = ({ searchTerm }) => {
@@ -36,20 +37,21 @@ const Cards = ({ searchTerm }) => {
 
   return (
     <>
-   
       <div className="cards-container">
         {movies.map((movie) => (
-          <div key={movie.id} className="card">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.original_title}
-              className="card-image"
-            />
-            <div className="card-content">
-              <h3 className="card-title">{movie.original_title}</h3>
-              <p className="card-rating">Rating: {movie.vote_average}</p>
+          <Link key={movie.id} to={`/SingleMovieDetail/${movie.id}`}>
+            <div className="card">
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.original_title}
+                className="card-image"
+              />
+              <div className="card-content">
+                <h3 className="card-title">{movie.original_title}</h3>
+                <p className="card-rating">Rating: {movie.vote_average}</p>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
@@ -67,3 +69,4 @@ const Cards = ({ searchTerm }) => {
 }
 
 export default Cards;
+

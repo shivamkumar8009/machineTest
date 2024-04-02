@@ -1,0 +1,42 @@
+/* SingleMovieDetail.css */
+.smovie-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .smovie-details {
+    margin-bottom: 20px;
+  }
+  
+  .scard {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .scard-image {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .scard-content {
+    padding: 15px;
+  }
+  
+  .scast-images {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+  }
+  
+  .scast-image {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+  }
+  
